@@ -1,0 +1,25 @@
+<% include ../partials/header %>
+<div class="container">
+  <h1>Profile Page</h1>
+       <% order.forEach(function(order) { %> 
+    <div class="panel panel-default">
+      <div class="panel-heading">Your Orders</div>
+      <div class="panel-body">
+        <ul class="list-group">
+       
+            <% var product = order.cart.items; %>
+            <% for(var id in product) { %>
+                <li class="list-group-item">
+                <span class="badge"> <%=product[id].qty %></span>
+                    <%=product[id].item.title %>
+                </li>
+            <% } %>
+      
+    </ul>
+      </div>
+      <div class="panel-footer"><strong>Your order total: $ <%=order.cart.totalPrice %></strong></div>
+    </div>
+      <% }); %>
+</div>
+
+<% include ../partials/footer %>

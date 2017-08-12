@@ -1,0 +1,26 @@
+<% include ./partials/header %>
+
+
+<h1 class="text-center"><strong>Shopping Cart Page</strong></h1>
+
+<div class="container" >
+    <div class="row" style="display: flex; flex-wrap: wrap;-webkit-flex-wrap: wrap;">
+      <% Product.forEach(function(product) { %>
+        <div class="col-sm-6 col-md-4">
+       
+          <div class="thumbnail">
+            <img class="img-responsive" src="<%= product.image %>" alt="...">
+            <div class="caption">
+              <h3><%=product.title %></h3>
+              <p><%= product.description %></p>
+              <p><a href="/add-to-cart/<%= product._id %>" class="btn btn-primary pull-right" role="button">Add to Cart</a>
+              <p><strong>$<%=product.price%></strong></p>
+              <p><strong>Buy One get One Free</strong></p>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>  
+</div>
+
+<% include ./partials/footer %>
